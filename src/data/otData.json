@@ -1,0 +1,26 @@
+[
+  {
+    "id": "OTN-2025-001",
+    "name": "Dr. Ada Johnson",
+    "degree": "PhD, Occupational Therapy",
+    "workplace": "National Hospital, Abuja",
+    "email": "ada.johnson@otan.org.ng",
+    "img": "/assets/precious.jpg"
+  },
+  {
+    "id": "OTN-2025-002",
+    "name": "Mr. Femi Oladele",
+    "degree": "MSc, Rehabilitation Science",
+    "workplace": "University of Lagos Teaching Hospital (LUTH)",
+    "email": "femi.oladele@otan.org.ng",
+    "img": "/assets/precious.jpg"
+  },
+  {
+    "id": "OTN-2025-003",
+    "name": "Dr. Aisha Bello",
+    "degree": "PhD, Clinical Therapy",
+    "workplace": "Aminu Kano Teaching Hospital",
+    "email": "aisha.bello@otan.org.ng",
+    "img": "/assets/precious.jpg"
+  }
+]
