@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Card from "../component/Card";
 import Precious from "../assets/precious.jpg";
-import Ayeni from "../assets/ayeni-president.jpg";
+import Ayeni from "../assets/ayeni-President.jpg";
 
 export default function Blog() {
   const cards = [
