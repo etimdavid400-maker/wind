@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Precious from "../assets/precious.jpg";
 import Ayeni from "../assets/ayeni-President.jpg";
-import Dunsi from "../assets/dusi-genSec.jpg";
+import Dunsi from "../assets/dusi-genSec.JPG";
 import Peter from "../assets/peter-pro.jpg";
 import Button from "../component/Button";
 import { Link } from "react-router-dom";
