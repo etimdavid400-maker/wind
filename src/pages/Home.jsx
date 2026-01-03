@@ -57,15 +57,14 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center mb-10">About OTAN</h2>
         <div className="max-w-4xl mx-auto text-lg leading-relaxed text-gray-700">
           <p className="mb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
-            Maecenas feugiat, massa nec facilisis porttitor, urna orci ultricies eros, 
-            non laoreet sapien eros in nulla. Integer volutpat, odio vitae tincidunt 
-            bibendum, risus libero varius metus, et suscipit risus felis sit amet neque.
+            OTAN is an independent organization recognized by the Medical Rehabilitation Therapists’
+             (Registration) Board of Nigeria (MRTBN) and World Federation of Occupational Therapy (WFOT).
           </p>
           <p>
-            Sed dictum, nunc vel pretium malesuada, sem odio tincidunt augue, vitae viverra 
-            augue lacus non mauris. Nunc porttitor tempor nunc, sit amet interdum magna 
-            convallis et. Aliquam erat volutpat.
+            OTAN represents the interest of occupational therapy profession in Nigeria. As a body, we strive to increase representation of the profession
+             and welfare of its members at all levels of healthcare across all zones in Nigeria and internationally.
+            OTAN strives to advance excellence in occupational therapy practice by enabling engagement in meaningful lives for everyone.
+
           </p>
         </div>
       </motion.section>

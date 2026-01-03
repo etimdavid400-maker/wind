@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 
 export default function Schools() {
   const institutions = [
-    { name: "University of Lagos", location: "Lagos", website: "https://unilag.edu.ng" },
+    { name: "University of Medical Sciences,", location: "Ondo", website: "https://www.unimed.edu.ng/faculties/FOSC" },
     { name: "Obafemi Awolowo University", location: "Ile-Ife", website: "https://oauife.edu.ng" },
-    { name: "University of Ibadan", location: "Ibadan", website: "https://ui.edu.ng" },
-    { name: "University of Nigeria, Nsukka", location: "Enugu", website: "https://unn.edu.ng" },
-    { name: "Afe Babalola University", location: "Ado-Ekiti", website: "https://www.abuad.edu.ng" },
-    { name: "Federal School of Occupational therapy, Oshodi", location: "Lagos", website: "https://www.buk.edu.ng" },
+    { name: "Federal University of Health Science (Azare, Bauchi)", location: "Azare, Bauchi", website: "https://fuhsa.edu.ng/" },
+    { name: "Federal University of Medical And Health Sciences", location: "Funtua, Katsina", website: "https://fumhsf.edu.ng/study/undergraduate" },
+    { name: "Federal University of Environment and Technology", location: "Rivers state", website: "https://fuet.edu.ng/faculty-of-allied-health-sciences/# " },
+    { name: "Federal School of Occupational therapy, Oshodi", location: "Oshodi, Lagos", website: "https://fsot.fnphyaba.gov.ng/index.php " },
   ];
 
   return (

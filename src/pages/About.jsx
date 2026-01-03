@@ -99,6 +99,53 @@ export default function About() {
         </div>
       </motion.section>
 
+      {/* Meet The President */}
+      <motion.section
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-20 px-6 md:px-20 bg-gray-100"
+      >
+        <h2 className="text-3xl font-bold mb-10 text-center">Meet The President</h2>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-10 text-gray-700">
+          
+          {/* Image with hover zoom */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex-shrink-0 w-full md:w-1/3"
+          >
+            <img
+              src={Ayeni}
+              alt="OT. Ayeni Salua"
+              className="rounded-2xl shadow-lg w-full object-cover"
+            />
+          </motion.div>
+
+          {/* Bio */}
+          <div className="w-full md:w-2/3 text-left">
+            <p className="mb-6">
+              Oluwasegun E. Ayeni is the third substantive National President of the Occupational Therapists Association of Nigeria (OTAN). 
+              As an Occupational Therapist, he obtained his bachelor’s degree in Medical Rehabilitation with specialization in Occupational Therapy (BMR – OT) from Obafemi Awolowo University (OAU), Ile-Ife, Nigeria. 
+              He also possesses a Master’s degree in Public Health (MSc.PH) from the University of Medical Sciences, Ondo, Nigeria, where he is currently pursuing a PhD programme in the same field.
+            </p>
+            <p className="mb-6">
+              He currently works as an Occupational Therapy lecturer and researcher at the Department of Occupational Therapy, University of Medical Sciences, where he also serves as the Head of the Department. 
+              As the National President, he is committed to a six-point agenda he coined as the <strong>REFORM</strong> agenda:
+            </p>
+            <ul className="list-disc list-inside mb-6 space-y-2">
+              <li><strong>R:</strong> Representation of all members</li>
+              <li><strong>E:</strong> Education pathways for interested members</li>
+              <li><strong>F:</strong> Full Membership with local and international associations</li>
+              <li><strong>O:</strong> Operation against quackery and professional impostors</li>
+              <li><strong>R:</strong> Rebirth of our dream association</li>
+              <li><strong>M:</strong> Membership Professional development</li>
+            </ul>
+          </div>
+        </div>
+      </motion.section>
+
+
       {/* Leadership */}
       <motion.section
         variants={fadeIn}
@@ -110,8 +157,8 @@ export default function About() {
         <h2 className="text-3xl font-bold mb-10">Leadership</h2>
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-10">
           {[
-            { img: Ayeni, name: "OT. Ayeni Salua", role: "President" },
             { img: Peter, name: "OT. Peter Akinsolu", role: "PRO" },
+            { img: Ayeni, name: "OT. Ayeni Salua", role: "President" },
             { img: Dunsi, name: "OT. Jesudunsi Shammuah", role: "Secretary General" },
           ].map((person, index) => (
             <motion.div

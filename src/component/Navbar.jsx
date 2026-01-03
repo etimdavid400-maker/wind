@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext"; // ⭐ import the user context
 import Logo from "../assets/logo-removebg-preview.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { user } = useUser(); // ⭐ get current logged-in user
 
   const Links = [
     { name: "HOME", link: "/" },
@@ -14,6 +16,11 @@ export default function Navbar() {
     { name: "BLOG'S", link: "/blog" },
     { name: "CONTACT", link: "/contact" },
   ];
+
+  // Only add admin link if user is logged in
+  if (user) {
+    Links.push({ name: "ADMIN PANEL", link: "/admin" });
+  }
 
   // Handle clicks → scroll to top and navigate
   const handleClick = (path) => {
@@ -29,7 +36,7 @@ export default function Navbar() {
   return (
     <div className="shadow-md w-full fixed top-0 left-0 z-50 bg-white">
       <div className="md:flex items-center justify-between py-4 md:px-10 px-7">
-        {/* Logo and Name */}
+        {/* Logo */}
         <div
           className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800"
           onClick={() => handleClick("/")}
