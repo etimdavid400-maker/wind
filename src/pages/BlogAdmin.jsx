@@ -4,18 +4,20 @@ export default function BlogAdmin({ user }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [link, setLink] = useState("");
-  const [selectedImage, setSelectedImage] = useState("/blog-images/image1.jpg");
+  const [selectedImage, setSelectedImage] = useState(
+    `${import.meta.env.VITE_API_URL}/public/image1.jpg`
+  );
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
   if (!user) return <p>Please log in to manage blogs.</p>;
 
   const images = [
-    "/blog-images/image1.jpg",
-    "/blog-images/image2.jpg",
-    "/blog-images/image3.jpg",
-    "/blog-images/image4.jpg",
-    "/blog-images/image5.jpg",
+    "image1.jpg",
+    "image2.png",
+    "image3.jpg",
+    "image4.jpg",
+    "image5.png",
   ];
 
   const handleSubmit = async (e) => {
@@ -43,7 +45,7 @@ export default function BlogAdmin({ user }) {
         setTitle("");
         setContent("");
         setLink("");
-        setSelectedImage(images[0]);
+        setSelectedImage(`${import.meta.env.VITE_API_URL}/public/image1.jpg`);
       }
     } catch (err) {
       console.error(err);
@@ -56,10 +58,16 @@ export default function BlogAdmin({ user }) {
       <h2 className="text-2xl font-bold mb-4">Create New Blog</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Title */}
         <div>
-          <label className="block font-semibold mb-1">Title</label>
+          <label htmlFor="blog-title" className="block font-semibold mb-1">
+            Title
+          </label>
           <input
             type="text"
+            id="blog-title"
+            name="title"
+            autoComplete="off"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full border rounded px-3 py-2"
@@ -67,9 +75,15 @@ export default function BlogAdmin({ user }) {
           />
         </div>
 
+        {/* Content */}
         <div>
-          <label className="block font-semibold mb-1">Content</label>
+          <label htmlFor="blog-content" className="block font-semibold mb-1">
+            Content
+          </label>
           <textarea
+            id="blog-content"
+            name="content"
+            autoComplete="off"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={6}
@@ -78,10 +92,16 @@ export default function BlogAdmin({ user }) {
           />
         </div>
 
+        {/* External Link */}
         <div>
-          <label className="block font-semibold mb-1">External Link (optional)</label>
+          <label htmlFor="blog-link" className="block font-semibold mb-1">
+            External Link (optional)
+          </label>
           <input
             type="url"
+            id="blog-link"
+            name="link"
+            autoComplete="url"
             value={link}
             onChange={(e) => setLink(e.target.value)}
             className="w-full border rounded px-3 py-2"
@@ -89,20 +109,26 @@ export default function BlogAdmin({ user }) {
           />
         </div>
 
+        {/* Select Image */}
         <div>
           <label className="block font-semibold mb-1">Select Image</label>
           <div className="flex gap-2 flex-wrap">
-            {images.map((img) => (
-              <img
-                key={img}
-                src={`${import.meta.env.VITE_API_URL}${img}`}
-                alt="blog option"
-                className={`w-20 h-20 object-cover rounded cursor-pointer border-2 ${
-                  selectedImage === img ? "border-green-600" : "border-gray-300"
-                }`}
-                onClick={() => setSelectedImage(img)}
-              />
-            ))}
+            {images.map((img) => {
+              const imgUrl = `${import.meta.env.VITE_API_URL}/public/${img}`;
+              return (
+                <img
+                  key={img}
+                  src={imgUrl}
+                  alt={`blog option ${img}`}
+                  className={`w-20 h-20 object-cover rounded cursor-pointer border-2 ${
+                    selectedImage === imgUrl
+                      ? "border-green-600"
+                      : "border-gray-300"
+                  }`}
+                  onClick={() => setSelectedImage(imgUrl)}
+                />
+              );
+            })}
           </div>
         </div>
 

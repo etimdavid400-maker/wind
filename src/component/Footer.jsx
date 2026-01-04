@@ -24,6 +24,7 @@ export default function Footer() {
             <li><a href="/about" className="hover:text-white transition">About Us</a></li>
             <li><a href="/membership" className="hover:text-white transition">Membership</a></li>
             <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
+            <li><a href="/admin" className="hover:text-white transition">AdminLogin</a></li>
           </ul>
         </div>
 
@@ -48,10 +49,10 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="flex space-x-4 text-gray-400">
-            <a href="#" className="hover:text-white transition"><FaFacebookF /></a>
-            <a href="#" className="hover:text-white transition"><FaTwitter /></a>
-            <a href="#" className="hover:text-white transition"><FaInstagram /></a>
-            <a href="#" className="hover:text-white transition"><FaLinkedinIn /></a>
+            <a href="/" className="hover:text-white transition"><FaFacebookF /></a>
+            <a href="/" className="hover:text-white transition"><FaTwitter /></a>
+            <a href="/" className="hover:text-white transition"><FaInstagram /></a>
+            <a href="/" className="hover:text-white transition"><FaLinkedinIn /></a>
           </div>
         </div>
       </div>

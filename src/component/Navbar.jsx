@@ -20,8 +20,6 @@ export default function Navbar() {
   // ✅ Admin access logic
   if (user) {
     Links.push({ name: "ADMIN PANEL", link: "/admin" });
-  } else {
-    Links.push({ name: "LOGIN", link: "/admin" });
   }
 
   const handleClick = (path) => {
