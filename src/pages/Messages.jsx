@@ -6,9 +6,11 @@ export default function Messages() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const fetchMessages = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/contact");
+      const res = await fetch(`${API_URL}/api/contact`);
       const data = await res.json();
       setMessages(data);
     } catch (err) {
@@ -26,8 +28,12 @@ export default function Messages() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/contact/${id}`, { method: "DELETE" });
-      if (res.ok) setMessages((prev) => prev.filter((m) => m._id !== id));
+      const res = await fetch(`${API_URL}/api/contact/${id}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        setMessages((prev) => prev.filter((m) => m._id !== id));
+      }
     } catch (err) {
       console.error(err);
     }
@@ -35,14 +41,16 @@ export default function Messages() {
 
   const handleToggleRead = async (id, currentStatus) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/contact/${id}`, {
+      const res = await fetch(`${API_URL}/api/contact/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ read: !currentStatus }),
       });
       if (res.ok) {
         setMessages((prev) =>
-          prev.map((msg) => (msg._id === id ? { ...msg, read: !currentStatus } : msg))
+          prev.map((msg) =>
+            msg._id === id ? { ...msg, read: !currentStatus } : msg
+          )
         );
       }
     } catch (err) {
@@ -79,7 +87,6 @@ export default function Messages() {
         <p className="text-center text-gray-500">No messages found.</p>
       ) : (
         <div className="space-y-4">
-          {/* Mobile cards */}
           {messages.map((msg) => (
             <div
               key={msg._id}
@@ -91,7 +98,9 @@ export default function Messages() {
                 <h3 className="font-bold">{msg.name}</h3>
                 <span
                   className={`px-2 py-1 rounded-full text-sm ${
-                    msg.read ? "bg-gray-200 text-gray-700" : "bg-green-100 text-green-700"
+                    msg.read
+                      ? "bg-gray-200 text-gray-700"
+                      : "bg-green-100 text-green-700"
                   }`}
                 >
                   {msg.read ? "Read" : "Unread"}

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useUser } from "../context/UserContext"; // ⭐ import the user context
+import { useUser } from "../context/UserContext";
 import Logo from "../assets/logo-removebg-preview.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { user } = useUser(); // ⭐ get current logged-in user
+  const { user } = useUser();
 
   const Links = [
     { name: "HOME", link: "/" },
@@ -17,12 +17,13 @@ export default function Navbar() {
     { name: "CONTACT", link: "/contact" },
   ];
 
-  // Only add admin link if user is logged in
+  // ✅ Admin access logic
   if (user) {
     Links.push({ name: "ADMIN PANEL", link: "/admin" });
+  } else {
+    Links.push({ name: "LOGIN", link: "/admin" });
   }
 
-  // Handle clicks → scroll to top and navigate
   const handleClick = (path) => {
     if (location.pathname === path) {
       window.scrollTo({ top: 0, behavior: "smooth" });
