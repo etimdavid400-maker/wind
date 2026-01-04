@@ -127,15 +127,26 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-gray-700 text-center">
           <div>
             <h3 className="font-semibold mb-2">Address</h3>
-            <p>LUTH, Mushin, Lagos, Nigeria</p>
+            <p>
+              <ion-icon name="location-outline"></ion-icon>
+                Plot 569, Cadastral Zone, B10, Jabi, Daki-biyu, Abuja, Nigeria
+              </p>
           </div>
           <div>
             <h3 className="font-semibold mb-2">Email</h3>
-            <p>info@otan.org.ng</p>
+            <p>
+              <ion-icon name="mail-outline"></ion-icon>
+                occupationaltherapistsng@gmail.com  
+              </p>
           </div>
           <div>
             <h3 className="font-semibold mb-2">Phone</h3>
-            <p>+234 800 123 4567</p>
+            <p><ion-icon name="call-outline"></ion-icon>
+              +234 806 503 0085
+            </p> 
+            <p><ion-icon name="call-outline"></ion-icon>
+              +234 807 051 2367
+            </p>
           </div>
         </div>
       </motion.section>
