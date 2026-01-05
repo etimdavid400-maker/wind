@@ -4,25 +4,13 @@ export default function BlogAdmin({ user }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [link, setLink] = useState("");
-  const [selectedImage, setSelectedImage] = useState(
-    `${import.meta.env.VITE_API_URL}/public/image1.jpg`
-  );
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [blogs, setBlogs] = useState([]); // State for all blogs
+  const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   if (!user) return <p>Please log in to manage blogs.</p>;
 
-  const images = [
-    "image1.jpg",
-    "image2.png",
-    "image3.jpg",
-    "image4.jpg",
-    "image5.png",
-  ];
-
-  // Fetch all blogs
   const fetchBlogs = async () => {
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs`);
@@ -41,33 +29,30 @@ export default function BlogAdmin({ user }) {
     fetchBlogs();
   }, []);
 
+  /* -------------------- CREATE BLOG -------------------- */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
     setError("");
 
-    if (!title || !content) {
-      return setError("Title and content are required.");
-    }
+    if (!title || !content) return setError("Title and content are required.");
 
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, content, link, selectedImage }),
+        body: JSON.stringify({ title, content, link }),
       });
 
       const data = await res.json();
 
-      if (!res.ok) {
-        setError(data.message || "Failed to create blog.");
-      } else {
+      if (!res.ok) setError(data.message || "Failed to create blog.");
+      else {
         setMessage("Blog created successfully!");
         setTitle("");
         setContent("");
         setLink("");
-        setSelectedImage(`${import.meta.env.VITE_API_URL}/public/image1.jpg`);
-        fetchBlogs(); // Refresh list after creating
+        fetchBlogs();
       }
     } catch (err) {
       console.error(err);
@@ -75,16 +60,15 @@ export default function BlogAdmin({ user }) {
     }
   };
 
-  // Delete a blog
+  /* -------------------- DELETE BLOG -------------------- */
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
-
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed to delete blog");
-      setBlogs(blogs.filter((b) => b._id !== id)); // Remove from state
+      setBlogs(blogs.filter((b) => b._id !== id));
       setMessage("Blog deleted successfully!");
     } catch (err) {
       console.error(err);
@@ -94,19 +78,13 @@ export default function BlogAdmin({ user }) {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded shadow mt-10">
+      {/* --- CREATE BLOG --- */}
       <h2 className="text-2xl font-bold mb-4">Create New Blog</h2>
-
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Title */}
         <div>
-          <label htmlFor="blog-title" className="block font-semibold mb-1">
-            Title
-          </label>
+          <label className="block font-semibold mb-1">Title</label>
           <input
             type="text"
-            id="blog-title"
-            name="title"
-            autoComplete="off"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full border rounded px-3 py-2"
@@ -114,15 +92,9 @@ export default function BlogAdmin({ user }) {
           />
         </div>
 
-        {/* Content */}
         <div>
-          <label htmlFor="blog-content" className="block font-semibold mb-1">
-            Content
-          </label>
+          <label className="block font-semibold mb-1">Content</label>
           <textarea
-            id="blog-content"
-            name="content"
-            autoComplete="off"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={6}
@@ -131,44 +103,15 @@ export default function BlogAdmin({ user }) {
           />
         </div>
 
-        {/* External Link */}
         <div>
-          <label htmlFor="blog-link" className="block font-semibold mb-1">
-            External Link (optional)
-          </label>
+          <label className="block font-semibold mb-1">External Link (optional)</label>
           <input
             type="url"
-            id="blog-link"
-            name="link"
-            autoComplete="url"
             value={link}
             onChange={(e) => setLink(e.target.value)}
             className="w-full border rounded px-3 py-2"
             placeholder="https://..."
           />
-        </div>
-
-        {/* Select Image */}
-        <div>
-          <label className="block font-semibold mb-1">Select Image</label>
-          <div className="flex gap-2 flex-wrap">
-            {images.map((img) => {
-              const imgUrl = `${import.meta.env.VITE_API_URL}/public/${img}`;
-              return (
-                <img
-                  key={img}
-                  src={imgUrl}
-                  alt={`blog option ${img}`}
-                  className={`w-20 h-20 object-cover rounded cursor-pointer border-2 ${
-                    selectedImage === imgUrl
-                      ? "border-green-600"
-                      : "border-gray-300"
-                  }`}
-                  onClick={() => setSelectedImage(imgUrl)}
-                />
-              );
-            })}
-          </div>
         </div>
 
         <button
@@ -182,7 +125,7 @@ export default function BlogAdmin({ user }) {
       {message && <p className="text-green-600 mt-2">{message}</p>}
       {error && <p className="text-red-600 mt-2">{error}</p>}
 
-      {/* List of Blogs */}
+      {/* --- BLOG LIST --- */}
       <div className="mt-10">
         <h2 className="text-2xl font-bold mb-4">All Blogs</h2>
         {loading ? (
@@ -200,12 +143,14 @@ export default function BlogAdmin({ user }) {
                   <h3 className="font-semibold">{blog.title}</h3>
                   <p className="text-gray-600 text-sm">{blog.content.substring(0, 60)}...</p>
                 </div>
-                <button
-                  onClick={() => handleDelete(blog._id)}
-                  className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition"
-                >
-                  Delete
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => handleDelete(blog._id)}
+                    className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition"
+                  >
+                    Delete
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
