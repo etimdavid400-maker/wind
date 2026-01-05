@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function BlogAdmin({ user }) {
   const [title, setTitle] = useState("");
@@ -9,6 +9,8 @@ export default function BlogAdmin({ user }) {
   );
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [blogs, setBlogs] = useState([]); // State for all blogs
+  const [loading, setLoading] = useState(true);
 
   if (!user) return <p>Please log in to manage blogs.</p>;
 
@@ -19,6 +21,25 @@ export default function BlogAdmin({ user }) {
     "image4.jpg",
     "image5.png",
   ];
+
+  // Fetch all blogs
+  const fetchBlogs = async () => {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs`);
+      if (!res.ok) throw new Error("Failed to fetch blogs");
+      const data = await res.json();
+      setBlogs(data);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to load blogs.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,6 +67,7 @@ export default function BlogAdmin({ user }) {
         setContent("");
         setLink("");
         setSelectedImage(`${import.meta.env.VITE_API_URL}/public/image1.jpg`);
+        fetchBlogs(); // Refresh list after creating
       }
     } catch (err) {
       console.error(err);
@@ -53,8 +75,25 @@ export default function BlogAdmin({ user }) {
     }
   };
 
+  // Delete a blog
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this blog?")) return;
+
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${id}`, {
+        method: "DELETE",
+      });
+      if (!res.ok) throw new Error("Failed to delete blog");
+      setBlogs(blogs.filter((b) => b._id !== id)); // Remove from state
+      setMessage("Blog deleted successfully!");
+    } catch (err) {
+      console.error(err);
+      setError("Failed to delete blog.");
+    }
+  };
+
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded shadow mt-10">
+    <div className="max-w-4xl mx-auto p-6 bg-white rounded shadow mt-10">
       <h2 className="text-2xl font-bold mb-4">Create New Blog</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -142,6 +181,36 @@ export default function BlogAdmin({ user }) {
 
       {message && <p className="text-green-600 mt-2">{message}</p>}
       {error && <p className="text-red-600 mt-2">{error}</p>}
+
+      {/* List of Blogs */}
+      <div className="mt-10">
+        <h2 className="text-2xl font-bold mb-4">All Blogs</h2>
+        {loading ? (
+          <p>Loading blogs...</p>
+        ) : blogs.length === 0 ? (
+          <p>No blogs available.</p>
+        ) : (
+          <ul className="space-y-4">
+            {blogs.map((blog) => (
+              <li
+                key={blog._id}
+                className="flex justify-between items-center p-4 border rounded"
+              >
+                <div>
+                  <h3 className="font-semibold">{blog.title}</h3>
+                  <p className="text-gray-600 text-sm">{blog.content.substring(0, 60)}...</p>
+                </div>
+                <button
+                  onClick={() => handleDelete(blog._id)}
+                  className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition"
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

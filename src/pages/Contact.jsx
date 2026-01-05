@@ -64,7 +64,7 @@ export default function Contact() {
         <div className="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-lg">
           <form ref={form} onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-gray-700 mb-2" htmlFor="name">Name</label>
+              <label htmlFor="name" className="block text-gray-700 mb-2">Name</label>
               <input
                 type="text"
                 name="name"
@@ -76,7 +76,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-gray-700 mb-2" htmlFor="email">Email</label>
+              <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
               <input
                 type="email"
                 name="email"
@@ -88,7 +88,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-gray-700 mb-2" htmlFor="message">Message</label>
+              <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
               <textarea
                 name="message"
                 id="message"
@@ -105,49 +105,9 @@ export default function Contact() {
               </Button>
             </div>
 
-            {status === "sent" && (
-              <p className="text-green-600 text-center mt-4">✅ Message sent successfully!</p>
-            )}
-            {status === "error" && (
-              <p className="text-red-600 text-center mt-4">❌ Something went wrong. Please try again.</p>
-            )}
+            {status === "sent" && <p className="text-green-600 text-center mt-4">✅ Message sent successfully!</p>}
+            {status === "error" && <p className="text-red-600 text-center mt-4">❌ Something went wrong. Please try again.</p>}
           </form>
-        </div>
-      </motion.section>
-
-      {/* Contact Info Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="py-20 px-6 md:px-20 bg-gray-100"
-      >
-        <h2 className="text-3xl font-bold text-center mb-10">Our Office</h2>
-        <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-gray-700 text-center">
-          <div>
-            <h3 className="font-semibold mb-2">Address</h3>
-            <p>
-              <ion-icon name="location-outline"></ion-icon>
-                Plot 569, Cadastral Zone, B10, Jabi, Daki-biyu, Abuja, Nigeria
-              </p>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Email</h3>
-            <p>
-              <ion-icon name="mail-outline"></ion-icon>
-                occupationaltherapistsng@gmail.com  
-              </p>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Phone</h3>
-            <p><ion-icon name="call-outline"></ion-icon>
-              +234 806 503 0085
-            </p> 
-            <p><ion-icon name="call-outline"></ion-icon>
-              +234 807 051 2367
-            </p>
-          </div>
         </div>
       </motion.section>
     </div>
