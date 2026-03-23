@@ -9,8 +9,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 
 const UserContext = createContext();
 
@@ -22,22 +21,24 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
-        // Ensure Firestore user doc exists
-        const ref = doc(db, "users", firebaseUser.uid);
-        const snap = await getDoc(ref);
-        let role = "user";
-
-        if (!snap.exists()) {
-          await setDoc(ref, {
-            email: firebaseUser.email,
-            role: "user",
-            createdAt: serverTimestamp(),
+        // Get the ID token and send to backend to ensure Mongo user exists
+        try {
+          await fetch(`${import.meta.env.VITE_API_URL}/api/users/create`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              uid: firebaseUser.uid,
+              name: firebaseUser.displayName || "No Name",
+              email: firebaseUser.email,
+            }),
           });
-        } else {
-          role = snap.data().role || "user";
+        } catch (err) {
+          console.error("Failed to sync Google user with backend:", err);
         }
 
-        setUser({ ...firebaseUser, role });
+        setUser(firebaseUser);
       } else {
         setUser(null);
       }
@@ -59,10 +60,29 @@ export const UserProvider = ({ children }) => {
     return cred.user;
   };
 
-  // Google login
+  // Google login (triggers backend sync)
   const googleLogin = async () => {
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
+
+    // Call backend to create user if not exists
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/users/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uid: result.user.uid,
+          name: result.user.displayName || "No Name",
+          email: result.user.email,
+        }),
+      });
+    } catch (err) {
+      console.error("Failed to sync Google user with backend:", err);
+    }
+
+    setUser(result.user);
     return result.user;
   };
 

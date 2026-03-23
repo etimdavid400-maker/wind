@@ -25,8 +25,26 @@ export default function AdminLogin() {
   const handleGoogle = async () => {
     setError("");
     try {
-      await googleLogin();
+      // Sign in with Google
+      const userCredential = await googleLogin();
+      const user = userCredential.user;
+
+      // Send user info to backend
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users/create`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+        }),
+      });
+
+      const data = await res.json();
+      console.log("Backend response:", data);
+
     } catch (err) {
+      console.error(err);
       setError(err.message);
     }
   };

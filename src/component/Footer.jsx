@@ -22,7 +22,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li><a href="/" className="hover:text-white transition">Home</a></li>
             <li><a href="/about" className="hover:text-white transition">About Us</a></li>
-            <li><a href="/membership" className="hover:text-white transition">Membership</a></li>
+            <li><a href="/" className="hover:text-white transition">Membership</a></li>
             <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
             <li><a href="/admin" className="hover:text-white transition">AdminLogin</a></li>
           </ul>
@@ -43,16 +43,16 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Get in Touch</h3>
           <p className="text-sm mb-3">
-            Email: <a href="mailto:info@otan.org.ng" className="hover:text-white">info@otan.org.ng</a>
+            Email: <a href="mailto:info@otan.org.ng" className="hover:text-white">occupationaltherapistsng@gmail.com  </a>
           </p>
-          <p className="text-sm mb-5">Phone: +234 801 234 5678</p>
+          <p className="text-sm mb-5">Phone: +234 806 503 0085</p>
 
           {/* Social Links */}
           <div className="flex space-x-4 text-gray-400">
             <a href="/" className="hover:text-white transition"><FaFacebookF /></a>
             <a href="/" className="hover:text-white transition"><FaTwitter /></a>
             <a href="/" className="hover:text-white transition"><FaInstagram /></a>
-            <a href="/" className="hover:text-white transition"><FaLinkedinIn /></a>
+            <a href="https://linktr.ee/occupationaltherapistsng " className="hover:text-white transition"><FaLinkedinIn /></a>/.
           </div>
         </div>
       </div>
@@ -79,14 +79,14 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-white transition"
           >
-            timtech.co
+            +2347079752017
           </a>{" "}
           |{" "}
-          <a href="tel:+2347079752017" className="hover:text-white transition">
+          <a href="tel:+7055548328" className="hover:text-white transition">
             +234 707 975 2017
           </a>
         </div>
       </div>
     </footer>
   );
-}
+},
