@@ -52,7 +52,7 @@ export default function Footer() {
             <a href="/" className="hover:text-white transition"><FaFacebookF /></a>
             <a href="/" className="hover:text-white transition"><FaTwitter /></a>
             <a href="/" className="hover:text-white transition"><FaInstagram /></a>
-            <a href="https://linktr.ee/occupationaltherapistsng " className="hover:text-white transition"><FaLinkedinIn /></a>/.
+            <a href="https://linktr.ee/occupationaltherapistsng " className="hover:text-white transition"><FaLinkedinIn /></a>
           </div>
         </div>
       </div>
@@ -79,10 +79,10 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-white transition"
           >
-            +2347079752017
+            +234 705 554 8328
           </a>{" "}
           |{" "}
-          <a href="tel:+7055548328" className="hover:text-white transition">
+          <a href="tel:+" className="hover:text-white transition">
             +234 707 975 2017
           </a>
         </div>

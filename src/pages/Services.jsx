@@ -39,7 +39,7 @@ export default function Services() {
   };
 
   return (
-    <div className="w-full bg-gray-50 text-gray-800">
+    <div className="w-full pt-10 bg-gray-50 text-gray-800">
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
@@ -107,7 +107,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Registration Form */}
+        {/* Registration Steps */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -116,71 +116,26 @@ export default function Services() {
         className="py-16 px-6 md:px-20 bg-gray-100"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
-          Register as an Occupational Therapist
+          How to Register as an Occupational Therapist
         </h2>
-        <form
-          onSubmit={handleRegister}
-          className="max-w-3xl mx-auto bg-white shadow-md rounded-2xl p-6 md:p-10 space-y-5"
-        >
-          <div className="grid md:grid-cols-2 gap-5">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="border border-gray-400 rounded-lg p-3 w-full focus:ring-2 focus:ring-gray-600"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleChange}
-              className="border border-gray-400 rounded-lg p-3 w-full focus:ring-2 focus:ring-gray-600"
-            />
-          </div>
-          <div className="grid md:grid-cols-2 gap-5">
-            <input
-              type="text"
-              name="degree"
-              placeholder="Degree / Qualification"
-              value={formData.degree}
-              onChange={handleChange}
-              className="border border-gray-400 rounded-lg p-3 w-full focus:ring-2 focus:ring-gray-600"
-            />
-            <input
-              type="text"
-              name="workplace"
-              placeholder="Place of Work"
-              value={formData.workplace}
-              onChange={handleChange}
-              className="border border-gray-400 rounded-lg p-3 w-full focus:ring-2 focus:ring-gray-600"
-            />
-          </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
-            <input
-              type="file"
-              accept="image/*"
-              className="border border-gray-400 rounded-lg p-3 w-full md:w-2/3 text-gray-600"
-            />
-            <Button type="submit" variant="dark" className="w-full md:w-auto">
-              Submit Registration
-            </Button>
-          </div>
-        </form>
+        <div className="max-w-3xl mx-auto bg-white shadow-md rounded-2xl p-6 md:p-10 space-y-4 text-gray-700">
+          <p>To register as a recognized Occupational Therapist, please follow the steps below:</p>
 
-        {/* Success message */}
-        {showSuccess && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="fixed bottom-6 right-6 bg-green-600 text-white px-5 py-3 rounded-lg shadow-lg text-sm md:text-base"
-          >
-            ✅ Registration submitted successfully!
-          </motion.div>
-        )}
+          <ol className="list-decimal ml-5 space-y-3">
+            <li>Go to the Contact Page.</li>
+            <li>Send a message requesting to be registered as an Occupational Therapist.</li>
+            <li>Include your Full Name, Qualification, Place of Work, and Email Address.</li>
+            <li>Include an active phone number so we can contact you.</li>
+            <li>Our team will review your request and contact you for verification.</li>
+          </ol>
+
+          <div className="text-center mt-6">
+            <a href="/contact">
+              <Button variant="dark">Go to Contact Page</Button>
+            </a>
+          </div>
+        </div>
       </motion.section>
     </div>
   );

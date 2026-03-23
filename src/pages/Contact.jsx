@@ -110,6 +110,20 @@ export default function Contact() {
           </form>
         </div>
       </motion.section>
+
+      {/* Developer Credit */}
+      <div className="text-center text-sm text-gray-500 pb-10">
+        <p>
+          Designed & Developed by{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-600 hover:underline"
+          >
+            Tim Technologies
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
