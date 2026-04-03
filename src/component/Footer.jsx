@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaYoutube, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -49,9 +49,9 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="flex space-x-4 text-gray-400">
-            <a href="/" className="hover:text-white transition"><FaFacebookF /></a>
-            <a href="/" className="hover:text-white transition"><FaTwitter /></a>
-            <a href="/" className="hover:text-white transition"><FaInstagram /></a>
+            <a href="/https://www.facebook.com/profile.php?id=61579740861359" className="hover:text-white transition"><FaFacebookF /></a>
+            <a href="/https://m.youtube.com/@OtanNG1" className="hover:text-white transition"><FaYoutube /></a>
+            <a href="/https://www.instagram.com/occupationaltherapists_ng" className="hover:text-white transition"><FaInstagram /></a>
             <a href="https://linktr.ee/occupationaltherapistsng " className="hover:text-white transition"><FaLinkedinIn /></a>
           </div>
         </div>
@@ -79,11 +79,11 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-white transition"
           >
-            +234 705 554 8328
+            +234 707 975 2017
           </a>{" "}
           |{" "}
           <a href="tel:+" className="hover:text-white transition">
-            +234 707 975 2017
+            +234 705 554 8328
           </a>
         </div>
       </div>

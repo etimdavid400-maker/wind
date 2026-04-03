@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Button from "../component/Button";
+import { Helmet } from "react-helmet-async";
+
 
 export default function Contact() {
   const form = useRef();
@@ -39,6 +41,13 @@ export default function Contact() {
 
   return (
     <div className="w-full bg-gray-50 text-gray-800">
+       <Helmet>
+        <title>Contact OTAN — Occupational Therapy Association of Nigeria</title>
+        <meta
+          name="description"
+          content="Get in touch with the Occupational Therapy Association of Nigeria (OTAN) for inquiries, support, or membership information."
+        />
+      </Helmet>
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}

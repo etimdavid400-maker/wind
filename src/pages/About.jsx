@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Precious from "../assets/precious.jpg";
 import Ayeni from "../assets/ayeni-President.jpg";
@@ -15,6 +16,14 @@ export default function About() {
 
   return (
     <div className="w-full bg-gray-50 text-gray-800">
+            <Helmet>
+        <title>About OTAN — Occupational Therapy Association of Nigeria</title>
+        <meta
+          name="description"
+          content="Learn about the Occupational Therapy Association of Nigeria (OTAN) and its mission to support occupational therapists across Nigeria."
+        />
+      </Helmet>
+
       {/* Hero Section */}
       <motion.section
         variants={fadeIn}

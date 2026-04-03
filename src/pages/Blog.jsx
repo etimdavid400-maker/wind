@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -43,6 +45,13 @@ export default function Blog() {
 
   return (
     <div className="p-6 md:p-10 bg-gray-50 min-h-screen mt-26">
+       <Helmet>
+        <title>OTAN Blog — Occupational Therapy Association of Nigeria</title>
+        <meta
+          name="description"
+          content="Read the latest updates, articles, and insights from the Occupational Therapy Association of Nigeria (OTAN)."
+        />
+      </Helmet>
       {/* Animated Heading */}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}

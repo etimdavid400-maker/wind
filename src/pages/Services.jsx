@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import Precious from "../assets/precious.jpg";
 import Button from "../component/Button";
 import otData from "../data/otData.json";
+import { Helmet } from "react-helmet-async";
+
 
 export default function Services() {
   const [otId, setOtId] = useState("");
@@ -40,6 +42,13 @@ export default function Services() {
 
   return (
     <div className="w-full pt-10 bg-gray-50 text-gray-800">
+        <Helmet>
+        <title>OTAN Services — Occupational Therapy Association of Nigeria</title>
+        <meta
+          name="description"
+          content="Explore the services offered by the Occupational Therapy Association of Nigeria (OTAN), including therapist resources, training, and support."
+        />
+      </Helmet>
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}

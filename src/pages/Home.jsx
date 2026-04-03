@@ -3,10 +3,19 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Button from "../component/Button";
 import Schools from "../component/Schools";
+import { Helmet } from "react-helmet-async";
+
 
 export default function Home() {
   return (
     <div className="w-full bg-gray-50 text-gray-800">
+       <Helmet>
+        <title>Occupational Therapy Association of Nigeria (OTAN)</title>
+        <meta
+          name="description"
+          content="Occupational Therapy Association of Nigeria (OTAN)"
+        />
+      </Helmet>
 
       {/* Hero Section */}
       <motion.section
