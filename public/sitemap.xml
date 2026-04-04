@@ -3,27 +3,27 @@
 
   <url>
     <loc>https://www.otan.org.ng/</loc>
-    <priority>1.00</priority>
+    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.otan.org.ng/about</loc>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.otan.org.ng/services</loc>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.otan.org.ng/contact</loc>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.otan.org.ng/blog</loc>
-    <priority>0.70</priority>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
