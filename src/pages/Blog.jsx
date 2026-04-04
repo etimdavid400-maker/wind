@@ -2,11 +2,28 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 
-
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
+
+  // Featured static posts for SEO
+  const featuredBlogs = [
+    {
+      _id: "seo-1",
+      title: "Why Occupational Therapy Matters in Nigeria",
+      content:
+        "OTAN supports patients and therapists by providing education, training, and resources to improve quality of life...",
+      link: null,
+    },
+    {
+      _id: "seo-2",
+      title: "5 Tips for Aspiring Occupational Therapists",
+      content:
+        "If you want to pursue a career in occupational therapy, here’s what you need to know to succeed in Nigeria...",
+      link: null,
+    },
+  ];
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -43,15 +60,20 @@ export default function Blog() {
     );
   }
 
+  // Combine featured blogs + fetched blogs
+  const allBlogs = [...featuredBlogs, ...blogs];
+
   return (
     <div className="p-6 md:p-10 bg-gray-50 min-h-screen mt-26">
-       <Helmet>
+      <Helmet>
         <title>OTAN Blog — Occupational Therapy Association of Nigeria</title>
         <meta
           name="description"
           content="Read the latest updates, articles, and insights from the Occupational Therapy Association of Nigeria (OTAN)."
         />
+        <link rel="canonical" href="https://www.otan.org.ng/blog" />
       </Helmet>
+
       {/* Animated Heading */}
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
@@ -68,11 +90,11 @@ export default function Blog() {
         </div>
       )}
 
-      {blogs.length === 0 ? (
+      {allBlogs.length === 0 ? (
         <p className="text-center text-gray-500 text-lg">No blogs available.</p>
       ) : (
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {blogs.map((blog, index) => (
+          {allBlogs.map((blog, index) => (
             <motion.div
               key={blog._id}
               initial={{ opacity: 0, y: 30 }}
@@ -82,7 +104,9 @@ export default function Blog() {
             >
               <div className="p-6 flex flex-col h-full justify-between">
                 <div>
-                  <h2 className="text-xl font-bold text-gray-800 mb-2">{blog.title}</h2>
+                  <h2 className="text-xl font-bold text-gray-800 mb-2">
+                    {blog.title}
+                  </h2>
                   <p className="text-gray-700 text-sm sm:text-base mb-4">
                     {blog.content.length > 150
                       ? blog.content.substring(0, 150) + "..."
