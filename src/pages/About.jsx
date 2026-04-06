@@ -29,7 +29,7 @@ export default function About() {
         variants={fadeIn}
         initial="hidden"
         animate="show"
-        className="relative py-28 px-6 md:px-20 text-center text-white overflow-hidden bg-gradient-to-r from-gray-800 to-gray-600"
+        className="relative py-28 px-6 md:px-20 text-center text-white overflow-hidden bg-linear-to-r from-gray-800 to-gray-600"
       >
         <img
           src={Precious}
@@ -122,7 +122,7 @@ export default function About() {
           {/* Image with hover zoom */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex-shrink-0 w-full md:w-1/3"
+            className="shrink-0 w-full md:w-1/3"
           >
             <img
               src={Ayeni}
