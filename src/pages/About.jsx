@@ -126,7 +126,7 @@ export default function About() {
           >
             <img
               src={Ayeni}
-              alt="OT. Ayeni Salua"
+              alt="OT. Oluwasegun Ayeni"
               className="rounded-2xl shadow-lg w-full object-cover"
             />
           </motion.div>
@@ -167,7 +167,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-10">
           {[
             { img: Peter, name: "OT. Peter Akinsolu", role: "PRO" },
-            { img: Ayeni, name: "OT. Ayeni Salua", role: "President" },
+            { img: Ayeni, name: "OT. Oluwasegun Ayeni", role: "President" },
             { img: Dunsi, name: "OT. Jesudunsi Shammuah", role: "Secretary General" },
           ].map((person, index) => (
             <motion.div
@@ -195,8 +195,8 @@ export default function About() {
       >
         <h2 className="text-3xl font-bold mb-6">Join OTAN Today</h2>
         <p className="text-lg max-w-2xl mx-auto mb-8">
-          Become part of Nigeria’s leading occupational therapy community. Network, learn, and contribute
-          to shaping the future of occupational therapy.
+          Become part of Nigeria’s official occupational therapy community. Network, learn, and continue 
+          to shape the future of OT profession and practice in Nigeria.
         </p>
         <Link to="/services">
           <Button variant="dark">Join Now</Button>

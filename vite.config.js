@@ -21,6 +21,8 @@ export default defineConfig({
         // Split vendor libraries into separate chunk
         manualChunks(id) {
           if (id.includes('node_modules')) {
+            if (id.includes('react')) return 'react';
+            if (id.includes('firebase')) return 'firebase';
             return 'vendor';
           }
         },
