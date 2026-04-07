@@ -21,11 +21,24 @@ export default defineConfig({
         // Split vendor libraries into separate chunk
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('react')) return 'react';
-            if (id.includes('firebase')) return 'firebase';
+            // Group ALL React-related libs together
+            if (
+              id.includes('react') ||
+              id.includes('react-dom') ||
+              id.includes('react-router')
+            ) {
+              return 'react';
+            }
+
+            // Firebase (if used)
+            if (id.includes('firebase')) {
+              return 'firebase';
+            }
+
+            // Everything else
             return 'vendor';
           }
-        },
+        }
       },
     },
   },
