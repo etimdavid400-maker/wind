@@ -16,30 +16,5 @@ export default defineConfig({
   build: {
     // Increase chunk warning limit to 2MB
     chunkSizeWarningLimit: 2000,
-    rollupOptions: {
-      output: {
-        // Split vendor libraries into separate chunk
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            // Group ALL React-related libs together
-            if (
-              id.includes('react') ||
-              id.includes('react-dom') ||
-              id.includes('react-router')
-            ) {
-              return 'react';
-            }
-
-            // Firebase (if used)
-            if (id.includes('firebase')) {
-              return 'firebase';
-            }
-
-            // Everything else
-            return 'vendor';
-          }
-        }
-      },
-    },
   },
 });
