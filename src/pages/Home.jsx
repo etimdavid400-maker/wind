@@ -13,7 +13,7 @@ export default function Home() {
         <title>Occupational Therapy Association of Nigeria (OTAN)</title>
         <meta
           name="description"
-          content="Occupational Therapy Association of Nigeria (OTAN)"
+          content="Occupational Therapy Association of Nigeria (OTAN) of NIGERIA OCCCUPATION"
         />
       </Helmet>
 
