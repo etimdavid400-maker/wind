@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import presidentImg from "../../assets/ayeni.jpeg";
 import vice from "../../assets/peter-pro.jpg";
-import secretary from "../../assets/gen.jpg";
+import gen from "../../assets/gen.jpg";
 import treasurer from "../../assets/precious.jpg";
 
 /* =======================
