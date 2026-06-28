@@ -34,46 +34,8 @@ export default function About() {
       <OurStory />
 
       {/* What We Do */}
-      {/* <motion.section
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="py-20 px-6 md:px-20 bg-gray-100 text-center"
-      >
-        <h2 className="text-3xl font-bold mb-10">What We Do</h2>
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 text-gray-700 text-left">
-          <div>
-            <h3 className="text-2xl font-semibold mb-3">Continuing Professional Development (CPD)</h3>
-            <p>
-              OTAN provides workshops, seminars, webinars, and certification programs to enhance
-              skills, knowledge, and professional growth for occupational therapists.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold mb-3">License Registration Support</h3>
-            <p>
-              We assist members with professional license registration and compliance to maintain
-              high standards in practice across Nigeria.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold mb-3">Conferences & Seminars</h3>
-            <p>
-              OTAN organizes national and regional conferences to promote networking, learning,
-              and sharing of best practices among occupational therapy professionals.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold mb-3">Promotion & Awareness</h3>
-            <p>
-              We lead campaigns to educate the public about occupational therapy, raise awareness
-              of its benefits, and advocate for better recognition of the profession.
-            </p>
-          </div>
-        </div>
-      </motion.section> */}
       <WhatWeDo />
+      
       <WhyOT />
 
       <Leadership />
