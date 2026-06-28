@@ -50,7 +50,7 @@ const leaders = [
     role: "PRO",
   },
   {
-    image: secretary,
+    image: gen,
     name: "OT. Jesudunsi Shammuah",
     role: "General Secretary",
   },
