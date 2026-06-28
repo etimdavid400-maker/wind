@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import Button from "../component/Button";
 import Schools from "../component/Schools";
 import { Helmet } from "react-helmet-async";
+import Hero from "../component/Hero";
+import aboutImage from "../assets/about1.png";
+import { Target, Eye } from "lucide-react";
+
+
 
 
 export default function Home() {
@@ -18,124 +23,272 @@ export default function Home() {
       </Helmet>
 
       {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="bg-gradient-to-r from-gray-800 to-gray-600 pt-40 text-white py-28 px-6 md:px-20 text-center"
-      >
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="text-4xl md:text-5xl font-bold mb-4"
-        >
-          Welcome to the Occupational Therapy Association of Nigeria (OTAN)
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.7 }}
-          className="text-lg md:text-xl max-w-2xl mx-auto my-10"
-        >
-          Promoting excellence, collaboration, and innovation in occupational therapy across Nigeria.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
-          <Link  to="/about">
-            <Button variant="primary" onClick={() => console.log("Clicked!")}>
-              Learn More
-            </Button>
-          </Link>
-        </motion.div>
-      </motion.section>
+      {<Hero/>}
 
       {/* About Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="py-20 px-6 md:px-20 bg-white"
-      >
-        <h2 className="text-3xl font-bold text-center mb-10">About OTAN</h2>
-        <div className="max-w-4xl mx-auto text-lg leading-relaxed text-gray-700">
-          <p className="mb-6">
-            OTAN is an independent organization recognized by the Medical Rehabilitation Therapists’
-             (Registration) Board of Nigeria (MRTBN) and World Federation of Occupational Therapy (WFOT).
-          </p>
+
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="bg-white py-24"
+    >
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+
+        <p className="uppercase tracking-[0.3em] text-sm font-semibold text-[#0E7A46] mb-4">
+          WHO WE ARE
+        </p>
+
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-10">
+          About OTAN
+        </h2>
+
+        <img
+          src={aboutImage}
+          alt="OTAN Members"
+          className="
+            w-full
+            md:w-[380px]
+            lg:w-[430px]
+
+            float-none
+            md:float-right
+
+            mb-8
+            md:mb-5
+
+            md:ml-10
+
+            rounded-3xl
+
+            shadow-xl
+
+            object-cover
+          "
+        />
+
+        <div className="space-y-6 text-lg leading-9 text-gray-700">
+
           <p>
-            OTAN represents the interest of occupational therapy profession in Nigeria. As a body, we strive to increase representation of the profession
-             and welfare of its members at all levels of healthcare across all zones in Nigeria and internationally.
-            OTAN strives to advance excellence in occupational therapy practice by enabling engagement in meaningful lives for everyone.
-
+            The Occupational Therapy Association of Nigeria (OTAN) is the
+            national professional body representing occupational therapists
+            across the country and promoting excellence in practice,
+            education, and advocacy.
           </p>
-        </div>
-      </motion.section>
 
-      {/* Mission & Vision Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
-        viewport={{ once: true }}
-        className="py-20 px-6 md:px-20 bg-gray-100"
-      >
-        <h2 className="text-3xl font-bold text-center mb-10">Our Mission & Vision</h2>
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 text-gray-700">
+          <p>
+            Recognized by MRTBN and affiliated with WFOT, OTAN supports
+            professional growth while advancing quality occupational
+            therapy services for individuals, families, and communities.
+          </p>
+
+          <p>
+            Together, we are building a stronger profession and creating
+            opportunities for occupational therapists to improve lives
+            across Nigeria.
+          </p>
+
+        </div>
+
+        <div className="clear-both"></div>
+
+        <Link
+          to="/about"
+          className="
+            inline-flex
+            items-center
+            gap-2
+            mt-10
+
+            text-[#0E7A46]
+            font-semibold
+
+            hover:gap-4
+            transition-all
+          "
+        >
+          Learn More
+
+          <span>→</span>
+
+        </Link>
+
+      </div>
+    </motion.section>
+
+
+    {/* Mission & Vision */}
+    <motion.section
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="bg-[#F8FAFC] py-24"
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div className="text-center mb-16">
+
+          <p className="uppercase tracking-[0.3em] text-sm font-semibold text-[#0E7A46] mb-4">
+            OUR PURPOSE
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            Mission & Vision
+          </h2>
+
+          <p className="mt-5 text-lg text-gray-600 max-w-2xl mx-auto">
+            Everything we do is guided by a shared commitment to advancing
+            occupational therapy and improving lives across Nigeria.
+          </p>
+
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-2">
+
+          {/* Mission */}
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
+            className="
+              bg-white
+              rounded-3xl
+              p-10
+              shadow-lg
+              hover:shadow-2xl
+              transition-all
+              duration-300
+              border
+              border-gray-100
+            "
           >
-            <h3 className="text-2xl font-semibold mb-4 text-gray-700">Mission</h3>
-            <p>
-              To foster unity among occupational therapy practitioners in Nigeria.
+
+            <div className="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-8">
+
+              <Target className="w-8 h-8 text-[#0E7A46]" />
+
+            </div>
+
+            <h3 className="text-3xl font-bold text-gray-900 mb-5">
+              Our Mission
+            </h3>
+
+            <p className="text-gray-600 leading-8 text-lg">
+              To foster unity among occupational therapy practitioners in
+              Nigeria while promoting professional excellence, advocacy,
+              collaboration, education, and lifelong learning.
             </p>
+
           </motion.div>
+
+          {/* Vision */}
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
+            className="
+              bg-white
+              rounded-3xl
+              p-10
+              shadow-lg
+              hover:shadow-2xl
+              transition-all
+              duration-300
+              border
+              border-gray-100
+            "
           >
-            <h3 className="text-2xl font-semibold mb-4 text-gray-700">Vision</h3>
-            <p>
-              To build a community of practitioners that will advance the occupational therapy profession in Nigeria.
+
+            <div className="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-8">
+
+              <Eye className="w-8 h-8 text-[#0E7A46]" />
+
+            </div>
+
+            <h3 className="text-3xl font-bold text-gray-900 mb-5">
+              Our Vision
+            </h3>
+
+            <p className="text-gray-600 leading-8 text-lg">
+              To build a thriving community of occupational therapy
+              professionals advancing healthcare, inclusion, independence,
+              and meaningful participation for every Nigerian.
             </p>
+
           </motion.div>
+
         </div>
-      </motion.section>
+
+      </div>
+
+    </motion.section>
+
+
 
       {/* Membership CTA Section */}
       <motion.section
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-24 px-6 md:px-20 bg-gray-700 text-white text-center"
+        className="py-24 px-6"
       >
-        <h2 className="text-3xl font-bold mb-6">Join the OTAN Community</h2>
-        <p className="text-lg max-w-2xl mx-auto mb-8">
-          Become a member and be part of Nigeria’s growing network of dedicated occupational therapy professionals.
-        </p>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          <Link to="/services">
-            <Button variant="dark">Register</Button>
-          </Link>
-        </motion.div>
+        <div className="max-w-6xl mx-auto">
+
+          <div className="relative overflow-hidden rounded-[36px] bg-[#0E7A46] px-8 py-16 md:px-16 md:py-20 text-center">
+
+            {/* Decorative circles */}
+            <div className="absolute -top-20 -left-20 h-56 w-56 rounded-full bg-white/5"></div>
+            <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/5"></div>
+
+            <div className="relative z-10">
+
+              <p className="uppercase tracking-[0.3em] text-sm font-semibold text-green-200 mb-4">
+                MEMBERSHIP
+              </p>
+
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                Become Part of OTAN
+              </h2>
+
+              <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-green-50">
+                Join a growing community of occupational therapy professionals
+                working together to strengthen the profession, support lifelong
+                learning, and improve lives across Nigeria.
+              </p>
+
+              <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+
+                <Link
+                  to="/services"
+                  className="rounded-full bg-white px-8 py-4 font-semibold text-[#0E7A46] transition hover:scale-105"
+                >
+                  Become a Member
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-white/40 px-8 py-4 font-semibold text-white transition hover:bg-white hover:text-[#0E7A46]"
+                >
+                  Contact Us
+                </Link>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
       </motion.section>
+
+
       <Schools />
     </div>
   );
