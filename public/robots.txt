@@ -1,4 +1,4 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.otan.org.ng/sitemap.xml
+Sitemap({
+  hostname: "https://www.otan.org.ng",
+  generateRobotsTxt: false,
+})
