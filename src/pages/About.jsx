@@ -1,10 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import Precious from "../assets/precious.jpg";
-import Ayeni from "../assets/ayeni.jpeg";
-import Dunsi from "../assets/dusi-genSec.JPG";
-import Peter from "../assets/peter-pro.jpg";
 import Button from "../component/Button";
 import { Link } from "react-router-dom";
 
