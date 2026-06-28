@@ -3,11 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import presidentImg from "../../assets/ayeni.jpeg";
 import vice from "../../assets/peter-pro.jpg";
-import secretary from "../../assets/dusi-genSec.jPG";
+import secretary from "../../assets/dusi-genSec.jpg";
 import treasurer from "../../assets/precious.jpg";
-// import vice from "../../assets/.jpg";
-// import secretary from "../../assets/about/secretary.jpg";
-// import treasurer from "../../assets/about/treasurer.jpg";
 
 /* =======================
    PRESIDENT SECTIONS
