@@ -1,10 +1,4 @@
-import Sitemap from "vite-plugin-sitemap";
+User-agent: *
+Allow: /
 
-export default {
-  plugins: [
-    Sitemap({
-      hostname: "https://www.otan.org.ng",
-      generateRobotsTxt: true,
-    }),
-  ],
-};
+Sitemap: https://www.otan.org.ng/sitemap.xml
