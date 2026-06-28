@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import whyOT from "../../assets/about/whyoT.png";
+import whyOT from "../../assets/about/whyOT.png";
 
 const areas = [
   {
