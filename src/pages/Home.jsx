@@ -233,7 +233,7 @@ export default function Home() {
 
       {/* Membership CTA Section */}
       <motion.section
-        initial={{ opacity: 0, opacity: 0 }}
+        initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
