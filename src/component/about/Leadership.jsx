@@ -5,6 +5,7 @@ import presidentImg from "../../assets/ayeni.jpeg";
 import vice from "../../assets/peter-pro.jpg";
 import gen from "../../assets/gen.jpg";
 import treasurer from "../../assets/precious.jpg";
+import tobi from "../../assets/tobi.jpg";
 
 /* =======================
    PRESIDENT SECTIONS
@@ -50,8 +51,13 @@ const leaders = [
     role: "PRO",
   },
   {
+    image: tobi,
+    name: "Ogundele F. Tobi",
+    role: "Financial Secretary",
+  },
+  {
     image: gen,
-    name: "OT. Jesudunsi Shammuah",
+    name: "OT. Jesudunsin Shammuah",
     role: "General Secretary",
   },
   {
@@ -105,12 +111,8 @@ export default function LeadershipPage() {
           />
 
           <div>
-            <p className="uppercase tracking-[0.3em] text-[#0E7A46] font-semibold text-sm">
-              PRESIDENT
-            </p>
-
             <h2 className="mt-4 text-4xl font-bold">
-              Meet The President
+              National President
             </h2>
 
             <h3 className="mt-3 text-2xl font-semibold text-[#0E7A46]">
@@ -166,7 +168,7 @@ export default function LeadershipPage() {
         {/* =======================
             OTHER LEADERS
         ======================= */}
-        <div className="grid md:grid-cols-3 gap-8 mt-24">
+        <div className="grid md:grid-cols-4 gap-8 mt-24">
 
           {leaders.map((leader, index) => (
             <motion.div

@@ -12,8 +12,8 @@ export default function Navbar() {
   const Links = [
     { name: "HOME", link: "/" },
     { name: "ABOUT", link: "/about" },
-    { name: "SERVICE", link: "/services" },
-    { name: "BLOG'S", link: "/blog" },
+    { name: "SERVICES", link: "/services" },
+    { name: "BLOGS", link: "/blog" },
     { name: "CONTACT", link: "/contact" },
   ];
 

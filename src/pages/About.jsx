@@ -53,7 +53,7 @@ export default function About() {
         <h2 className="text-3xl font-bold mb-6">Join OTAN Today</h2>
         <p className="text-lg max-w-2xl mx-auto mb-8">
           Become part of Nigeria’s official occupational therapy community. Network, learn, and continue 
-          to shape the future of OT profession and practice in Nigeria.
+          to shape the future of OT profession....
         </p>
         <Link to="/services">
           <Button variant="dark">Join Now</Button>
