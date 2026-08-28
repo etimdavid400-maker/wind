@@ -5,7 +5,8 @@ import Button from "../component/Button";
 import Schools from "../component/Schools";
 import { Helmet } from "react-helmet-async";
 import Hero from "../component/Hero";
-import aboutImage from "../assets/about1.png";
+// import aboutImage from "../assets/about1.png";
+import aboutImage from "../assets/logo-removebg-preview.png";
 import { Target, Eye } from "lucide-react";
 
 
