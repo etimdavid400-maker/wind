@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Logo / About */}
         <div>
           <h2 className="text-xl font-bold text-white mb-4">
-            Occupational Therapist Association of Nigeria (OTAN)
+            Occupational Therapists Association of Nigeria (OTAN)
           </h2>
           <p className="text-gray-400 text-sm leading-relaxed">
             Promoting excellence, collaboration, and innovation in occupational therapy across Nigeria.

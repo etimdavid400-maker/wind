@@ -28,7 +28,7 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
             className="mb-4 text-xs sm:text-sm uppercase tracking-[0.18em] sm:tracking-[0.3em] text-[#C89D3D] font-semibold"
           >
-            Occupational Therapist Association of Nigeria
+            Occupational Therapists Association of Nigeria
           </motion.p>
 
           {/* Heading */}

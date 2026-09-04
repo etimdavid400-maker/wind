@@ -16,10 +16,10 @@ export default function Home() {
   return (
     <div className="w-full bg-gray-50 text-gray-800">
        <Helmet>
-        <title>Occupational Therapist Association of Nigeria (OTAN)</title>
+        <title>Occupational Therapists Association of Nigeria (OTAN)</title>
         <meta
           name="description"
-          content="Occupational Therapist Association of Nigeria (OTAN) of NIGERIA OCCCUPATION"
+          content="Occupational Therapists Association of Nigeria (OTAN) of NIGERIA OCCCUPATION"
         />
       </Helmet>
 
