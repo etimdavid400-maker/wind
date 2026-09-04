@@ -16,10 +16,10 @@ export default function Home() {
   return (
     <div className="w-full bg-gray-50 text-gray-800">
        <Helmet>
-        <title>Occupational Therapy Association of Nigeria (OTAN)</title>
+        <title>Occupational Therapist Association of Nigeria (OTAN)</title>
         <meta
           name="description"
-          content="Occupational Therapy Association of Nigeria (OTAN) of NIGERIA OCCCUPATION"
+          content="Occupational Therapist Association of Nigeria (OTAN) of NIGERIA OCCCUPATION"
         />
       </Helmet>
 
@@ -72,7 +72,7 @@ export default function Home() {
         <div className="space-y-6 text-lg leading-9 text-gray-700">
 
           <p>
-            The Occupational Therapy Association of Nigeria (OTAN) is the
+            The Occupational Therapist Association of Nigeria (OTAN) is the
             national professional body representing occupational therapists
             across the country and promoting excellence in practice,
             education, and advocacy.
